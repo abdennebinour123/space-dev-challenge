@@ -1,0 +1,156 @@
+<div class="row m-5">
+    <div class="col-md-12">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+            Details of {{launch?.name}}
+        </h3>
+
+        <article class="blog-post">
+            <h2 class="blog-post-title">Rocket: {{launch?.rocket?.configuration?.name}}</h2>
+
+            <p>Full name:</p>
+            <p>{{launch?.rocket?.configuration?.full_name}}</p>
+            <hr>
+            <p>Family:</p>
+            <p>{{launch?.rocket?.configuration?.family}}</p>
+            <hr>
+            <p>Description:</p>
+            <p>{{launch?.rocket?.configuration?.description}}</p>
+            <hr>
+            <p>Link:</p>
+            <p><a href="{{launch?.rocket?.configuration?.info_url}}">Click to see more details</a></p>
+            <hr>
+            <p>Image:</p>
+            <img src="{{launch?.rocket?.configuration?.image_url}}" alt="rocket image" width="50%"
+                style="max-width: 50%;">
+            <hr>
+            <p>Launch mass:</p>
+            <p>{{launch?.rocket?.configuration?.launch_mass}}</p>
+            <hr>
+            <p>Launch cost:</p>
+            <p>{{launch?.rocket?.configuration?.launch_cost}}</p>
+            <hr>
+            <p>Length:</p>
+            <p>{{launch?.rocket?.configuration?.length}}</p>
+            <hr>
+            <p>Maiden flight:</p>
+            <p>{{launch?.rocket?.configuration?.maiden_flight}}</p>
+            <hr>
+            <p>Manufacturer name:</p>
+            <p>{{launch?.rocket?.configuration?.manufacturer?.name}}</p>
+            <hr>
+            <p>Manufacturer description:</p>
+            <p>{{launch?.rocket?.configuration?.manufacturer?.description}}</p>
+            <hr>
+            <p>Manufacturer administrator :</p>
+            <p>{{launch?.rocket?.configuration?.manufacturer?.administrator}}</p>
+            <hr>
+
+
+            <h2 class="blog-post-title">Lunch Pad</h2>
+
+            <p>Name:</p>
+            <p>{{launch?.pad?.name}}</p>
+            <hr>
+            <p>Latitude:</p>
+            <p>{{launch?.pad?.latitude}}</p>
+            <hr>
+            <p>Longitude:</p>
+            <p>{{launch?.pad?.longitude}}</p>
+            <hr>
+            <p>Map image:</p>
+            <img src="{{launch?.pad?.map_image}}" alt="pad location image" width="50%" style="max-width: 50%;">
+            <hr>
+            <p>Map URL:</p>
+            <p><a href="{{launch?.pad?.map_url}}">Click to see map</a></p>
+            <hr>
+
+            <p>Location:</p>
+            <p>{{launch?.pad?.location?.name}}</p>
+            <img src="{{launch?.pad?.location?.map_image}}" alt="pad location image" width="50%"
+                style="max-width: 50%;">
+            <hr>
+
+
+            <h2 class="blog-post-title">Lunch Status</h2>
+
+            <p>Name:</p>
+            <p>{{launch?.status?.name}}</p>
+            <hr>
+            <p>Description:</p>
+            <p>{{launch?.status?.description}}</p>
+            <hr>
+
+            <h2 class="blog-post-title">Lunch Service Provider</h2>
+
+            <p>Name:</p>
+            <p>{{launch?.launch_service_provider?.name}}</p>
+            <hr>
+            <p>Administrator:</p>
+            <p>{{launch?.launch_service_provider?.administrator}}</p>
+            <hr>
+            <p>Founding year:</p>
+            <p>{{launch?.launch_service_provider?.founding_year}}</p>
+            <hr>
+            <p>Description:</p>
+            <p>{{launch?.launch_service_provider?.description}}</p>
+            <hr>
+            <p>Successful landings:</p>
+            <p>{{launch?.launch_service_provider?.successful_landings}}</p>
+            <hr>
+            <p>Successful launches:</p>
+            <p>{{launch?.launch_service_provider?.successful_launches}}</p>
+            <hr>
+            <p>Failed landings:</p>
+            <p>{{launch?.launch_service_provider?.failed_landings}}</p>
+            <hr>
+            <p>Failed launches:</p>
+            <p>{{launch?.launch_service_provider?.failed_launches}}</p>
+            <hr>
+
+            <div *ngIf="launch?.mission">
+                <h2 class="blog-post-title">Mission</h2>
+                <p>Name:</p>
+                <p>{{launch?.mission?.name}}</p>
+                <hr>
+                <p>Description:</p>
+                <p>{{launch?.mission?.description}}</p>
+                <hr>
+            </div>
+
+            <div *ngIf="launch?.mission_patches?.length>0">
+                <h2 class="blog-post-title">Mission patches</h2>
+                <div *ngFor="let patch of launch?.mission_patches">
+                    <p>Name:</p>
+                    <p>{{patch?.name}}</p>
+                    <hr>
+                    <p>Agency name:</p>
+                    <p>{{patch?.agency?.name}}</p>
+                    <hr>
+                    <p>Agency type:</p>
+                    <p>{{patch?.agency?.type}}</p>
+                    <hr>
+                </div>
+            </div>
+
+            <div *ngIf="launch?.program?.length>0">
+                <h2 class="blog-post-title">Program</h2>
+                <div *ngFor="let program of launch?.program">
+                    <p>Name:</p>
+                    <p>{{program?.name}}</p>
+                    <hr>
+                    <p>Start date:</p>
+                    <p>{{program?.start_date | date: 'dd/MM/yyyy'}}</p>
+                    <hr>
+                    <div *ngIf="program?.end_date">
+                        <p>End date:</p>
+                        <p>{{program?.end_date | date: 'dd/MM/yyyy'}}</p>
+                        <hr>
+                    </div>
+                    <p>Description:</p>
+                    <p>{{program?.description}}</p>
+                    <hr>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>

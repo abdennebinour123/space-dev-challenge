@@ -1,0 +1,28 @@
+<div class="container px-4 py-5" id="custom-cards" [ngBusy]="busy">
+    <h2 class="pb-2 border-bottom">Launches List</h2>
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+        <div class="col" *ngFor="let launch of launches; let i = index">
+            <div routerLink="/details/{{launch.id}}"
+                class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                    <ul class="d-flex list-unstyled mt-auto">
+                        <li class="me-auto">
+                        </li>
+                        <li class="d-flex align-items-center me-3">
+                            <small>Statut: {{launch.status.name}}</small>
+                        </li>
+                    </ul>
+                    <h2 class="mt-4 mb-4 display-6 lh-1 fw-bold">Name: {{launch.name}}</h2>
+                    <ul class="d-flex list-unstyled mt-auto">
+                        <li class="me-auto">
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <small>Launch window : {{launch.launch_service_provider.name}}</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
